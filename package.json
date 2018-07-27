@@ -2,7 +2,7 @@
   "name": "evileye",
   "version": "1.0.0",
   "description": "An all around amazing Discord Bot!",
-  "main": "Evileye.js",
+  "main": "evileye.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
