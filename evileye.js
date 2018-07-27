@@ -164,7 +164,7 @@ evileye.on("message", async message => {
                     .setFooter("Ranked " + data.ranked + " on MAL.")
                     .setURL(data.url)
                 message.channel.send(Embed)
-            }).catch((err) => console.log(err))
+            }).catch((err) => message.reply("I cannot seem to complete this search."))
     }
 
 
