@@ -55,8 +55,8 @@ evileye.on("message", async message => {
             .addField("Ban", "Bans someone from your server. `Usage: .ban Evileye`")
             .addField("Kick", "Kicks someone from your server. `Usage: .kick Evileye`")
             .addField("Mute", "Creates a muted role and mutes the target. `Usage: .mute Evileye`")
-            .addField("Unmute", "Umutes the target. `Usage: .unmute Evileye`")
             .addField("Purge/Delete", "Purges/deletes up to 100 messages from chat. `Usage: .purge 50`")
+            .addField("Unmute", "Umutes the target. `Usage: .unmute Evileye`")
         message.channel.send(embed)
     }
     if (message.content.startsWith(prefix + "nsfw")) {
