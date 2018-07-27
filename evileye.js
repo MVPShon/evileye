@@ -54,6 +54,7 @@ evileye.on("message", async message => {
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("Ban", "Bans someone from your server. `Usage: .ban Evileye`")
             .addField("Kick", "Kicks someone from your server. `Usage: .kick Evileye`")
+            .addField("Mute", "Creates a muted role and mutes the target. `Usage: .mute Evileye`")
             .addField("Purge/Delete", "Purges/deletes up to 100 messages from chat. `Usage: .purge 50`")
         message.channel.send(embed)
     }
@@ -249,7 +250,7 @@ evileye.on("message", async message => {
             if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.send("You do not have the right permissions for this.");
             let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
             if(!toMute) return message.channel.send("Please specify someone.")
-            
+            if(toMute.id === evileye.author.id) return message.channel.send("Like I'd let myself be muted... Fool.");
             if(toMute.id === message.author.id) return message.channel.send("You're not allowed to mute yourself.");
             if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("Unable to mute a member that has the same or higher role than you!");
             
