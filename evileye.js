@@ -256,7 +256,7 @@ evileye.on("message", async message => {
             color: `${args[0].toUpperCase()}`,
           })
             .then(role => message.channel.send(`Created new role with name "${role.name}" and color "${role.color}".`))
-            .catch(error => (message.reply("There was a problem making this role. Make sure you're using the right colors."))
+            .catch(error => message.reply("There was a problem making this role. Make sure you're using the right colors."))
 }
 else { message.reply(`There's already a role with the name "${role.name}".`)}
 }
