@@ -1,0 +1,27 @@
+{
+  "name": "evileye",
+  "version": "1.0.0",
+  "description": "An all around amazing Discord Bot!",
+  "main": "Evileye.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "anime",
+    "weeb",
+    "meme",
+    "overlord",
+    "moderation",
+    "nsfw"
+  ],
+  "author": "MVPShon",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "discord.js-musicbot-addon": "^12.0.6",
+    "kaori": "^1.1.4",
+    "mal-scraper": "^2.4.2",
+    "random-puppy": "^1.1.0",
+    "weather-js": "^2.0.0"
+  }
+}
