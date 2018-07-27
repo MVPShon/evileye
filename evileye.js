@@ -246,4 +246,4 @@ evileye.on("message", async message => {
             }).catch(err => message.channel.send("No image found for your search!"));
     }
 })
-evileye.login(process.env.TOKEN);
+evileye.login(process.env.BOT_TOKEN);
