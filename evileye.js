@@ -55,6 +55,7 @@ evileye.on("message", async message => {
             .addField("Ban", "Bans someone from your server. `Usage: .ban Evileye`")
             .addField("Kick", "Kicks someone from your server. `Usage: .kick Evileye`")
             .addField("Mute", "Creates a muted role and mutes the target. `Usage: .mute Evileye`")
+            .addField("Unmute", "Umutes the target. `Usage: .unmute Evileye`")
             .addField("Purge/Delete", "Purges/deletes up to 100 messages from chat. `Usage: .purge 50`")
         message.channel.send(embed)
     }
@@ -275,7 +276,7 @@ evileye.on("message", async message => {
         message.channel.send("I have muted this user!");
 
     }
-    if (message.content.startsWith(prefix + "mute")) {
+    if (message.content.startsWith(prefix + "unmute")) {
         if (message.author.bot) return;
         if (!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.send("You do not have the right permissions for this.");
         let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
