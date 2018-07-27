@@ -83,7 +83,7 @@ evileye.on("message", async message => {
             .addField(`Users `, evileye.users.size)
             .addField("Uptime", uptime)
             .addField("Ping", new Date().getTime() - message.createdTimestamp + " ms.", true)
-            .addField("Description", "Multi-functional, ever growing bot based off of the character `Evileye` from the Overlord anime series. Constantly being updated daily with more cool, exciting stuff for you to enjoy! This bot was made by `MVPShon#1664`. If you would like to get in contact with him, please join the following discord server: https://discord.gg/WqVBymT")
+            .addField("Description", "Multi-functional, ever growing bot based off of the character `Evileye` from the Overlord anime series. Constantly being updated daily with more cool, exciting stuff for you to enjoy! This bot was made by `MVPShon#1664`. If you would like to get in contact with him, please join the following discord server: https://discord.gg/tT8aZjJ")
             .setThumbnail(evileye.user.displayAvatarURL)
         message.channel.send(embed);
     }
