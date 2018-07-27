@@ -249,8 +249,7 @@ evileye.on("message", async message => {
             if (message.content.startsWith(prefix + "mute")) {
             if(!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.send("You do not have the right permissions for this.");
             let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-            if(!toMute) return message.channel.send("Please specify someone.")
-            if(toMute.id === evileye.author.id) return message.channel.send("Like I'd let myself be muted... Fool.");
+            if(!toMute) return message.channel.send("Please specify someone.");
             if(toMute.id === message.author.id) return message.channel.send("You're not allowed to mute yourself.");
             if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("Unable to mute a member that has the same or higher role than you!");
             
