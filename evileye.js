@@ -215,8 +215,10 @@ evileye.on("message", async message => {
         var randomPuppy = require('random-puppy');
         var subreddits = [
             'Hentai',
-            'HQHentai',
-            'Rule34'
+            'Overwatch_Porn',
+            'Rule34Overwatch',
+            'Naruto_Hentai',
+            'Rule34LoL'
         ]
         var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
         randomPuppy(sub)
