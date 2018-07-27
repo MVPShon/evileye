@@ -117,7 +117,7 @@ evileye.on("message", async message => {
         if (!member)
             return message.reply("Please mention a valid member of this server!");
         if (!member.kickable)
-            return message.reply("I cannot kick this user! I may not have the sufficient permissions to kick this user or they may have a higher role than me!");
+            return message.reply("I cannot kick someone with a higher role than me/without proper permissions!");
         let reason = args.slice(1).join(' ');
         if (!reason) reason = "No reason provided";
         await member.kick(reason)
@@ -284,7 +284,7 @@ evileye.on("message", async message => {
         let role = message.guild.roles.find(r => r.name == "Muted");
         if (!role || !toMute.roles.has(role.id)) return message.channel.send("This user is not muted!");
         await toMute.removeRole(role);
-        message.channel.send("I have unmuted him/her!");
+        message.channel.send("I have unmuted this user.");
         return;
     }
 })
