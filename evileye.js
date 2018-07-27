@@ -53,6 +53,7 @@ evileye.on("message", async message => {
             .setColor(0xFE2E2E)
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("Ban", "Bans someone from your server. `Usage: .ban Evileye`")
+            .addField("CreateRole", "Makes a role. `Usage: .createrole Red Evileye` *Note - The only colors that work with this are 'default','aqua','green','blue','purple','gold','orange','red','grey','darker_grey','navy','dark_aqua','dark_green','dark_blue','dark_purple','dark_gold','dark_orange','dark_red','dark_navy','random'*")
             .addField("Kick", "Kicks someone from your server. `Usage: .kick Evileye`")
             .addField("Mute", "Creates a muted role and mutes the target. `Usage: .mute Evileye`")
             .addField("Purge/Delete", "Purges/deletes up to 100 messages from chat. `Usage: .purge 50`")
@@ -247,6 +248,18 @@ evileye.on("message", async message => {
                 message.channel.send(Embed)
             }).catch(err => message.channel.send("No image found for your search!"));
     }
+        if (message.content.startsWith(prefix + "createrole")) {
+        let role = message.guild.roles.find(r => r.name == `${args[1]}`);
+        if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply("Sorry, you don't have permissions to use this!");
+        if (!role) { message.guild.createRole({
+            name: `${args.slice(1).join(" ")}`,
+            color: `${args[0].toUpperCase()}`,
+          })
+            .then(role => message.channel.send(`Created new role with name "${role.name}" and color "${role.color}".`))
+            .catch(message.reply("There was a problem making this role. Make sure you're using the right colors."))
+}
+else { message.reply(`There's already a role with the name "${role.name}".`)}
+}
     if (message.content.startsWith(prefix + "mute")) {
         if (!message.member.hasPermission("MUTE_MEMBERS")) return message.channel.send("You do not have the right permissions for this.");
         let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
@@ -287,5 +300,6 @@ evileye.on("message", async message => {
         message.channel.send("I have unmuted this user.");
         return;
     }
+    
 })
 evileye.login(process.env.BOT_TOKEN);
