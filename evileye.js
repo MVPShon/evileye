@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 let evileye = new Discord.Client();
-let prefix = ".";
+let prefix = "-";
 const Music = require('discord.js-musicbot-addon');
 
 Music.start(evileye, {
@@ -10,7 +10,7 @@ Music.start(evileye, {
     global: false,
     disableLeave: "true",
     ownerOverMember: true,
-    embedColor: 'DARK_RED',
+    embedColor: 0xff6464,
     maxQueueSize: '50',
     botOwner: '168865955940794368',
     messageHelp: "true",
@@ -38,7 +38,7 @@ evileye.on("message", async message => {
     if (message.content.startsWith(prefix + "commands")) {
         let embed = new Discord.RichEmbed()
             .setAuthor(`ALL Commands for Evileye`)
-            .setColor(0xFE2E2E)
+            .setColor(0xff6464)
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("ASCII", "Turns your text into ascii.")
             .addField("Info", "Sends statistics and a brief detail about the bot.")
@@ -54,7 +54,7 @@ evileye.on("message", async message => {
     if (message.content.startsWith(prefix + "admin")) {
         let embed = new Discord.RichEmbed()
             .setAuthor(`ADMIN Commands for Evileye`)
-            .setColor(0xFE2E2E)
+            .setColor(0xff6464)
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("Ban", "Bans someone from your server. `Usage: "+ prefix +"ban Evileye`")
             .addField("CreateRole", "Makes a role. `Usage: "+ prefix +"createrole Red Evileye` *Note - The only colors that work with this are: `'default', 'aqua', 'green', 'blue', 'purple', 'gold', 'orange', 'red', 'grey', 'darker_grey', 'navy', 'dark_aqua', 'dark_green', 'dark_blue', 'dark_purple', 'dark_gold', 'dark_orange', 'dark_red', 'dark_navy', 'random'*`")
@@ -67,7 +67,7 @@ evileye.on("message", async message => {
     if (message.content.startsWith(prefix + "nsfw")) {
         let embed = new Discord.RichEmbed()
             .setAuthor(`NSFW Commands for Evileye`)
-            .setColor(0xFE2E2E)
+            .setColor(0xff6464)
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("Hentai", "Pulls a random hentai picture off of Reddit.")
             .addField("Rule34/R34", "Searches https://rule34.xxx for hentai tags. `Usage: "+ prefix +"rule34 Evileye` *Note - Spaces are represented as UNDERSCORES on the R34 website*")
@@ -85,7 +85,7 @@ evileye.on("message", async message => {
         let uptime = `${hours} hours, ${minutes} minutes and ${seconds} second(s).`;
         let embed = new Discord.RichEmbed()
             .setAuthor(`Generated Stats`)
-            .setColor(0xFE2E2E)
+            .setColor(0xff6464)
             .addField("Name", evileye.user.tag, true)
             .addField("Bot Owner", evileye.users.get("168865955940794368").tag, true)
             .addField(`Servers `, evileye.guilds.size, true)
@@ -100,7 +100,7 @@ evileye.on("message", async message => {
     if (message.content.startsWith(prefix + "help")) {
         let embed = new Discord.RichEmbed()
         .setAuthor(`Help`)
-        .setColor(0xFE2E2E)
+        .setColor(0xff6464)
         .addField("Info","To find basic info on the bot, just type `"+ prefix +"info`")
         .addField("Commands","Type `"+ prefix +"commands` for a list of all commands.")
         message.channel.send(embed)
@@ -121,7 +121,7 @@ evileye.on("message", async message => {
             var location = result[0].location;
             let Embed = new Discord.RichEmbed()
                 .setTitle("Weather results for `" + location.name + "`.")
-                .setColor(0xFE2E2E)
+                .setColor(0xff6464)
                 .addField("Skies Are", current.skytext, true)
                 .addField("Humidity", current.humidity, true)
                 .addField("Currently", current.temperature + "°F", true)
@@ -144,7 +144,7 @@ evileye.on("message", async message => {
             .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
         let embed = new Discord.RichEmbed()
             .setAuthor("Kick", evileye.user.displayAvatarURL)
-            .setColor(0xFE2E2E)
+            .setColor(0xff6464)
             .setTitle(`${member.user.tag} has been kicked by ${message.author.tag}.`)
             .setFooter(`${member.user.tag} has been cucked! I mean kicked.`)
             .addField(`Reason:`, `${reason}`)
@@ -174,7 +174,7 @@ evileye.on("message", async message => {
         malScraper.getInfoFromName(name)
             .then((data) => {
                 let Embed = new Discord.RichEmbed()
-                    .setColor(0xFE2E2E)
+                    .setColor(0xff6464)
                     .setTitle(data.title)
                     .addField("Genres", data.genres)
                     .addField("Status", data.status + " with " + data.episodes + " episodes.", true)
@@ -190,14 +190,14 @@ evileye.on("message", async message => {
     if (message.content.startsWith(prefix + "owo ") || (message.content.startsWith(prefix + "owoify "))) {
                   let text = `${args.join(" ")}`.replace(/r|l/g, "w").replace(/R|L/g, "W");
                   let embed = new Discord.RichEmbed()
-                  .setColor(0xFE2E2E)
+                  .setColor(0xff6464)
                   .setDescription(text.slice(0,1024),true)
                   message.channel.send(embed)
                 }
                 if (message.content.startsWith(prefix + "blood ")) {
                     let text = `${args.join(" ")}`.replace(/c|k/g, "b").replace(/C|K/g, "B");
                     let embed = new Discord.RichEmbed()
-                    .setColor(0xFE2E2E)
+                    .setColor(0xff6464)
                     .setDescription(text,true)
                     message.channel.send(embed)
                   }
@@ -217,7 +217,7 @@ evileye.on("message", async message => {
             .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
         let embed = new Discord.RichEmbed()
             .setAuthor("Ban")
-            .setColor(0xFE2E2E)
+            .setColor(0xff6464)
             .setTitle(`${member.user.tag} has been banned by ${message.author.tag}.`)
             .setFooter(`${member.user.tag} has been banned.`)
             .addField(`Reason:`, `${reason}`)
@@ -237,7 +237,7 @@ evileye.on("message", async message => {
             .then(url => {
                 let embed = new Discord.RichEmbed()
                     .setTitle("Memes make the world go 'round")
-                    .setColor(0xFE2E2E)
+                    .setColor(0xff6464)
                     .setFooter("Image doesn't load? Probably a video or a deleted image.")
                     .setImage(url);
                 message.channel.send({
@@ -258,7 +258,7 @@ evileye.on("message", async message => {
             .then(url => {
                 let embed = new Discord.RichEmbed()
                     .setTitle("Some hentai for you <3")
-                    .setColor(0xFE2E2E)
+                    .setColor(0xff6464)
                     .setFooter("Image doesn't load? Probably a video or a deleted image.")
                     .setImage(url);
                 message.channel.send({
@@ -278,7 +278,7 @@ evileye.on("message", async message => {
             .then(images => {
                 let Embed = new Discord.RichEmbed()
                     .setAuthor(`Result for: ${args[0]}`)
-                    .setColor(0xFE2E2E)
+                    .setColor(0xff6464)
                     .setImage(images[0].common.fileURL)
                 message.channel.send(Embed)
             }).catch(err => message.channel.send("No image found for your search!"));
@@ -349,5 +349,5 @@ else { message.reply(`There's already a role with the name "${role.name}".`)}
         message.channel.send(`${data}`, {code: 'AsciiArt'});
     });
   }
-})
+ })
 evileye.login(process.env.BOT_TOKEN);
