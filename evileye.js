@@ -177,7 +177,7 @@ evileye.on("message", async message => {
                     .setColor(0xff6464)
                     .setTitle(data.title)
                     .addField("Genres", data.genres)
-                    .addField("Status", data.status + " with " + data.episodes + " episodes.", true)
+                    .addField("Status", data.status + " with " + data.episodes + " episode(s).", true)
                     .addField("Rated", data.rating, true)
                     .addField("Summary", data.synopsis.slice(0,1021) + "...")
                     .setThumbnail(data.picture)
