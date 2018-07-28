@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 let evileye = new Discord.Client();
-let prefix = ".";
+let prefix = "-";
 const Music = require('discord.js-musicbot-addon');
 
 Music.start(evileye, {
@@ -40,11 +40,15 @@ evileye.on("message", async message => {
             .setAuthor(`ALL Commands for Evileye`)
             .setColor(0xFE2E2E)
             .setThumbnail(evileye.user.displayAvatarURL)
+            .addField("ASCII", "Turns your text into ascii.")
             .addField("Info", "Sends statistics and a brief detail about the bot.")
-            .addField("MAL", "Looks up an anime off of MyAnimeList. `Usage: .mal Overlord`")
+            .addField("MAL", "Looks up an anime off of MyAnimeList. `Usage: "+ prefix +"mal Overlord`")
+            .addField("Help", "Shows the bot's help command.")
             .addField("Meme", "Pastes random Reddit memes.")
-            .addField("Weather", "Looks up weather for a specific place. `Usage: .weather Hell`")
-            .setFooter("If you're looking for admin commands then please type: .admin | If you're looking for NSFW commands then please type .nsfw")
+            .addField("OwO", "OwOifies your text.")
+            .addField("Ping", "Shows the bot's current ping.")
+            .addField("Weather", "Looks up weather for a specific place. `Usage: "+ prefix +"weather Hell`")
+            .setFooter("If you're looking for admin commands then please type: "+ prefix +"admin | If you're looking for NSFW commands then please type "+ prefix +"nsfw")
         message.channel.send(embed)
     }
     if (message.content.startsWith(prefix + "admin")) {
@@ -52,12 +56,12 @@ evileye.on("message", async message => {
             .setAuthor(`ADMIN Commands for Evileye`)
             .setColor(0xFE2E2E)
             .setThumbnail(evileye.user.displayAvatarURL)
-            .addField("Ban", "Bans someone from your server. `Usage: .ban Evileye`")
-            .addField("CreateRole", "Makes a role. `Usage: .createrole Red Evileye` *Note - The only colors that work with this are 'default','aqua','green','blue','purple','gold','orange','red','grey','darker_grey','navy','dark_aqua','dark_green','dark_blue','dark_purple','dark_gold','dark_orange','dark_red','dark_navy','random'*")
-            .addField("Kick", "Kicks someone from your server. `Usage: .kick Evileye`")
-            .addField("Mute", "Creates a muted role and mutes the target. `Usage: .mute Evileye`")
-            .addField("Purge/Delete", "Purges/deletes up to 100 messages from chat. `Usage: .purge 50`")
-            .addField("Unmute", "Umutes the target. `Usage: .unmute Evileye`")
+            .addField("Ban", "Bans someone from your server. `Usage: "+ prefix +"ban Evileye`")
+            .addField("CreateRole", "Makes a role. `Usage: "+ prefix +"createrole Red Evileye` *Note - The only colors that work with this are: `'default', 'aqua', 'green', 'blue', 'purple', 'gold', 'orange', 'red', 'grey', 'darker_grey', 'navy', 'dark_aqua', 'dark_green', 'dark_blue', 'dark_purple', 'dark_gold', 'dark_orange', 'dark_red', 'dark_navy', 'random'*`")
+            .addField("Kick", "Kicks someone from your server. `Usage: "+ prefix +"kick Evileye`")
+            .addField("Mute", "Creates a muted role and mutes the target. `Usage: "+ prefix +"mute Evileye`")
+            .addField("Purge/Delete", "Purges/deletes up to 100 messages from chat. `Usage: "+ prefix +"purge 50`")
+            .addField("Unmute", "Umutes the target. `Usage: "+ prefix +"unmute Evileye`")
         message.channel.send(embed)
     }
     if (message.content.startsWith(prefix + "nsfw")) {
@@ -66,9 +70,12 @@ evileye.on("message", async message => {
             .setColor(0xFE2E2E)
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("Hentai", "Pulls a random hentai picture off of Reddit.")
-            .addField("Rule34/R34", "Searches https://rule34.xxx for hentai tags. `Usage: .rule34 Evileye` *Note - Spaces are represented as UNDERSCORES on the R34 website*")
+            .addField("Rule34/R34", "Searches https://rule34.xxx for hentai tags. `Usage: "+ prefix +"rule34 Evileye` *Note - Spaces are represented as UNDERSCORES on the R34 website*")
         message.author.send(embed)
     }
+    if (message.content.startsWith(prefix + "ping")) {
+        message.reply(new Date().getTime() - message.createdTimestamp + " ms.")
+        }
     if (message.content.startsWith(prefix + "info")) {
         let totalSeconds = (evileye.uptime / 1000);
         let hours = Math.floor(totalSeconds / 3600);
@@ -79,14 +86,26 @@ evileye.on("message", async message => {
         let embed = new Discord.RichEmbed()
             .setAuthor(`Generated Stats`)
             .setColor(0xFE2E2E)
-            .addField(`Servers `, evileye.guilds.size)
-            .addField(`Users `, evileye.users.size)
+            .addField("Name", evileye.user.tag, true)
+            .addField("Bot Owner", evileye.users.get("168865955940794368").tag, true)
+            .addField(`Servers `, evileye.guilds.size, true)
+            .addField(`Users `, evileye.users.size, true)
             .addField("Uptime", uptime)
-            .addField("Ping", new Date().getTime() - message.createdTimestamp + " ms.", true)
-            .addField("Description", "Multi-functional, ever growing bot based off of the character `Evileye` from the Overlord anime series. Constantly being updated daily with more cool, exciting stuff for you to enjoy! This bot was made by `MVPShon#1664`. If you would like to get in contact with him, please join the following discord server: https://discord.gg/tT8aZjJ")
+            .addField("Ping", new Date().getTime() - message.createdTimestamp + " ms.")
+            .addField("Description", "Multi-functional, ever growing bot based off of the character `Evileye` from the Overlord anime series. Constantly being updated daily with more cool, exciting stuff for you to enjoy!")
+            .addField("Contact", "Discord Server - https://discord.gg/WqVBymT")
             .setThumbnail(evileye.user.displayAvatarURL)
         message.channel.send(embed);
     }
+    if (message.content.startsWith(prefix + "help")) {
+        let embed = new Discord.RichEmbed()
+        .setAuthor(`Help`)
+        .setColor(0xFE2E2E)
+        .addField("Info","To find basic info on the bot, just type `"+ prefix +"info`")
+        .addField("Commands","Type `"+ prefix +"commands` for a list of all commands.")
+        message.channel.send(embed)
+
+}
     if (message.content.startsWith(prefix + "weather")) {
         var weather = require('weather-js');
         weather.find({
@@ -165,9 +184,24 @@ evileye.on("message", async message => {
                     .setFooter("Ranked " + data.ranked + " on MAL.")
                     .setURL(data.url)
                 message.channel.send(Embed)
-            }).catch((err) => message.reply("I cannot seem to complete this search."))
+            }).catch((err) => console.log(err))
     }
 
+    if (message.content.startsWith(prefix + "owo ") || (message.content.startsWith(prefix + "owoify "))) {
+                  let text = `${args.join(" ")}`.replace(/r|l/g, "w").replace(/R|L/g, "W");
+                  let embed = new Discord.RichEmbed()
+                  .setColor(0xFE2E2E)
+                  .setDescription(text.slice(0,1024),true)
+                  message.channel.send(embed)
+                }
+                if (message.content.startsWith(prefix + "blood ")) {
+                    let text = `${args.join(" ")}`.replace(/c|k/g, "b").replace(/C|K/g, "B");
+                    let embed = new Discord.RichEmbed()
+                    .setColor(0xFE2E2E)
+                    .setDescription(text,true)
+                    message.channel.send(embed)
+                  }
+    
 
     if (message.content.startsWith(prefix + "ban")) {
         if (!message.member.hasPermission("BAN_MEMBERS"))
@@ -189,6 +223,7 @@ evileye.on("message", async message => {
             .addField(`Reason:`, `${reason}`)
         message.channel.send(embed);
     }
+
     if (message.content.startsWith(prefix + "meme")) {
         var randomPuppy = require('random-puppy');
         var subreddits = [
@@ -215,10 +250,8 @@ evileye.on("message", async message => {
         var randomPuppy = require('random-puppy');
         var subreddits = [
             'Hentai',
-            'Overwatch_Porn',
-            'Rule34Overwatch',
-            'Naruto_Hentai',
-            'Rule34LoL'
+            'HQHentai',
+            'Rule34'
         ]
         var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
         randomPuppy(sub)
@@ -302,6 +335,19 @@ else { message.reply(`There's already a role with the name "${role.name}".`)}
         message.channel.send("I have unmuted this user.");
         return;
     }
-    
+    if (message.content.startsWith(prefix + "ascii") || (message.content.startsWith(prefix + "asciify"))) {
+    var figlet = require('figlet');
+    var maxLen = 14 // You can modify the max characters here
+    if(args.join(' ').length > maxLen) return message.channel.send('Only 14 characters allowed!') 
+    if(!args[0]) return message.channel.send('Nothing was given for me to ASCIIfy');
+    figlet(`${args.join(' ')}`, function(err, data) {
+        if (err) {
+            message.log('Hm.. Something seems to have gone wrong here.');
+            console.dir(err);
+            return;
+        }
+        message.channel.send(`${data}`, {code: 'AsciiArt'});
+    });
+  }
 })
 evileye.login(process.env.BOT_TOKEN);
