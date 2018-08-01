@@ -35,7 +35,7 @@ evileye.on("message", async message => {
             .addField("Serverinfo","Shows info about the current server.")
             .addField("Weather", "Looks up weather for a specific place. `Usage: "+ prefix +"weather Hell`")
             .addField("Whois","Find out information about a specific user.")
-            .setFooter("If you're looking for admin commands then please type: "+ prefix +"admin |If you're looking for music commands then please type "+ prefix +"musichelp | If you're looking for NSFW commands then please type "+ prefix +"nsfw")
+            .setFooter("If you're looking for admin commands then please type: "+ prefix +"admin | If you're looking for music commands then please type "+ prefix +"musichelp | If you're looking for NSFW commands then please type "+ prefix +"nsfw")
         message.channel.send(embed)
     }
         if (message.content.startsWith(prefix + "musichelp")) {
@@ -45,9 +45,12 @@ evileye.on("message", async message => {
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("Add", "Adds a song using a specific link to the queue. `Usage: "+ prefix +"add https://www.youtube.com/watch?v=3WSgJCYIewM`")
             .addField("Join", "Joins the bot to your music channel. `Usage: "+ prefix +"join #MusicChannel`")
+            .addField("Pause","Pauses the currently playing song.")
             .addField("Play", "Plays the songs you've added to the queue.")
             .addField("Queue", "Shows the currently queued songs")
+            .addField("Resume","Resumes a song if paused.")
             .addField("Search", "Searches for a song by name. You can type `"+ prefix +"play` to immediately play/add the searched song. `Usage: "+ prefix +"search In My Feelings Drake`")
+            .addField("Skip","Skips the currently playing song.")
         message.channel.send(embed)
     }
     
@@ -61,7 +64,7 @@ evileye.on("message", async message => {
             .addField("Kick", "Kicks someone from your server. `Usage: "+ prefix +"kick Evileye`")
             .addField("Mute", "Creates a muted role and mutes the target. `Usage: "+ prefix +"mute Evileye`")
             .addField("Purge/Delete", "Purges/deletes up to 100 messages from chat. `Usage: "+ prefix +"purge 50`")
-            .addField("Unmute", "Umutes the target. `Usage: "+ prefix +"unmute Evileye`")
+            .addField("Unmute", "Unmutes the target. `Usage: "+ prefix +"unmute Evileye`")
         message.channel.send(embed)
     }
     if (message.content.startsWith(prefix + "nsfw")) {
@@ -255,7 +258,7 @@ evileye.on("message", async message => {
             }).catch((err) => console.log(err))
     }
 
-    if (message.content.startsWith(prefix + "owo ") || (message.content.startsWith(prefix + "owoify "))) {
+        if (message.content.startsWith(prefix + "owo ") || (message.content.startsWith(prefix + "owoify ") ||( message.content.startsWith(prefix + "OwOify ") || (message.content.startsWith(prefix + "OwO "))))) {        
                   let text = `${args.join(" ")}`.replace(/r|l/g, "w").replace(/R|L/g, "W");
                   let embed = new Discord.RichEmbed()
                   .setColor(0xff6464)
