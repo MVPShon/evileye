@@ -1,21 +1,6 @@
 const Discord = require("discord.js");
 let evileye = new Discord.Client();
 let prefix = ".";
-const Music = require('discord.js-musicbot-addon');
-
-Music.start(evileye, {
-    youtubeKey: "AIzaSyA9BBe0ud_2h_5q9SVBvrXfRGtxwIX5WaM",
-    prefix: ".",
-    helpCmd: "musichelp",
-    global: false,
-    disableLeave: "true",
-    ownerOverMember: true,
-    embedColor: 0xff6464,
-    maxQueueSize: '50',
-    botOwner: '168865955940794368',
-    messageHelp: "true",
-    defVolume: '75'
-});
 
 evileye.on("ready", async () => {
     console.log("Evileye is ready to go!")
