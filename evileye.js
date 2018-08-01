@@ -45,7 +45,7 @@ evileye.on("message", async message => {
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("Add", "Adds a song using a specific link to the queue. `Usage: "+ prefix +"add https://www.youtube.com/watch?v=3WSgJCYIewM`")
             .addField("Join", "Joins the bot to your music channel. `Usage: "+ prefix +"join #MusicChannel`")
-            .addField("Play", "Plays a spong from a specific link or by the song's name. `Usage: "+ prefix +"play In My Feelings by Drake`")
+            .addField("Play", "Plays the songs you've added to the queue.")
             .addField("Queue", "Shows the currently queued songs")
             .addField("Search", "Searches for a song by name. You can type `"+ prefix +"play` to immediately play/add the searched song. `Usage: "+ prefix +"search In My Feelings Drake`")
         message.channel.send(embed)
