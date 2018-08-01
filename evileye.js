@@ -35,9 +35,22 @@ evileye.on("message", async message => {
             .addField("Serverinfo","Shows info about the current server.")
             .addField("Weather", "Looks up weather for a specific place. `Usage: "+ prefix +"weather Hell`")
             .addField("Whois","Find out information about a specific user.")
-            .setFooter("If you're looking for admin commands then please type: "+ prefix +"admin | If you're looking for NSFW commands then please type "+ prefix +"nsfw")
+            .setFooter("If you're looking for admin commands then please type: "+ prefix +"admin |If you're looking for music commands then please type "+ prefix +"musichelp | If you're looking for NSFW commands then please type "+ prefix +"nsfw")
         message.channel.send(embed)
     }
+        if (message.content.startsWith(prefix + "musichelp")) {
+        let embed = new Discord.RichEmbed()
+            .setAuthor(`Music Commands for Evileye`)
+            .setColor(0xff6464)
+            .setThumbnail(evileye.user.displayAvatarURL)
+            .addField("Add", "Adds a song using a specific link to the queue. `Usage: "+ prefix +"add https://www.youtube.com/watch?v=3WSgJCYIewM`")
+            .addField("Join", "Joins the bot to your music channel. `Usage: "+ prefix +"join #MusicChannel`")
+            .addField("Play", "Plays a spong from a specific link or by the song's name. `Usage: "+ prefix +"play In My Feelings by Drake`")
+            .addField("Queue", "Shows the currently queued songs")
+            .addField("Search", "Searches for a song by name. You can type `"+ prefix +"play` to immediately play/add the searched song. `Usage: "+ prefix +"search In My Feelings Drake`")
+        message.channel.send(embed)
+    }
+    
     if (message.content.startsWith(prefix + "admin")) {
         let embed = new Discord.RichEmbed()
             .setAuthor(`ADMIN Commands for Evileye`)
