@@ -4,7 +4,7 @@ let prefix = ".";
 
 evileye.on("ready", async () => {
     console.log("Evileye is ready to go!")
-    evileye.user.setActivity('Overlord III', {
+    evileye.user.setActivity(`\"${prefix}` + `help\" for help with ${evileye.user.username}`, {
         type: 'WATCHING'
     })
 });
