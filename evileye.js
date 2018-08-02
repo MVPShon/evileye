@@ -112,7 +112,7 @@ evileye.on("message", async message => {
 }
         if (message.content.startsWith(prefix + "report")) {
         if (!args[0]) { 
-            message.reply("Please specify something to report.")
+            return message.reply("Please specify something to report.")
         }
         let embed = new Discord.RichEmbed()
         .setColor(0xff6464)
