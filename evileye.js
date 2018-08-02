@@ -26,16 +26,10 @@ evileye.on("message", async message => {
             .setColor(0xff6464)
             .setThumbnail(evileye.user.displayAvatarURL)
             .addField("ASCII", "Turns your text into ascii.")
-            .addField("Info", "Sends statistics and a brief detail about the bot.")
             .addField("MAL", "Looks up an anime off of MyAnimeList. `Usage: "+ prefix +"mal Overlord`")
             .addField("Help", "Shows the bot's help command.")
             .addField("Meme", "Pastes random Reddit memes.")
             .addField("OwO", "OwOifies your text.")
-            .addField("Ping", "Shows the bot's current ping.")
-            .addField("Report", "If you happen to find something wrong with the bot and/or the bot commands you can use this command to let the bot owner know! Usage: `" + prefix + "report (report here)`")
-            .addField("Serverinfo","Shows info about the current server.")
-            .addField("Weather", "Looks up weather for a specific place. `Usage: "+ prefix +"weather Hell`")
-            .addField("Whois","Find out information about a specific user.")
             .setFooter("If you're looking for admin commands then please type: "+ prefix +"admin | If you're looking for music commands then please type "+ prefix +"musichelp | If you're looking for NSFW commands then please type "+ prefix +"nsfw")
         message.channel.send(embed)
     }
@@ -107,6 +101,19 @@ evileye.on("message", async message => {
         .setColor(0xff6464)
         .addField("Info","To find basic info on the bot, just type `"+ prefix +"info`")
         .addField("Commands","Type `"+ prefix +"commands` for a list of all commands.")
+        .addField("Utility", "Type `"+ prefix +"utility` for a list of all utility commands.")
+        message.channel.send(embed)
+}
+        if (message.content.startsWith(prefix + "utility")) {
+        let embed = new Discord.RichEmbed()
+        .setAuthor(`Utility`)
+        .setColor(0xff6464)
+            .addField("Info", "Sends statistics and a brief detail about the bot.")
+            .addField("Ping", "Shows the bot's current ping.")
+            .addField("Report", "If you happen to find something wrong with the bot and/or the bot commands you can use this command to let the bot owner know! Usage: `" + prefix + "report (report here)`")
+            .addField("Serverinfo","Shows info about the current server.")
+            .addField("Weather", "Looks up weather for a specific place. `Usage: "+ prefix +"weather Hell`")
+            .addField("Whois","Find out information about a specific user.")
         message.channel.send(embed)
 
 }
