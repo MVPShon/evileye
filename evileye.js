@@ -91,7 +91,7 @@ evileye.on("message", async message => {
             .addField("Uptime", uptime)
             .addField("Ping", new Date().getTime() - message.createdTimestamp + " ms.")
             .addField("Description", "Multi-functional, ever growing bot based off of the character `Evileye` from the Overlord anime series. Constantly being updated daily with more cool, exciting stuff for you to enjoy!")
-            .addField("Contact", "Discord Server - https://discord.gg/tT8aZjJ")
+            .addField("Important Links", "Discord Server - https://discord.gg/tT8aZjJ | Upvote Evileye - https://discordbots.org/bot/472335600477798420/vote")
             .setThumbnail(evileye.user.displayAvatarURL)
         message.channel.send(embed);
     }
