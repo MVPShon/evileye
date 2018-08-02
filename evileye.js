@@ -125,6 +125,7 @@ evileye.on("message", async message => {
         .setColor(0xff6464)
         .setAuthor(`${message.author.tag}` + " in " + `${message.guild.name}`)
         .addField("Report",`${args.join(" ")}`)
+        .setThumbnail(evileye.user.displayAvatarURL)
         evileye.channels.get("474492342552887302").send(embed)
         let embed2 = new Discord.RichEmbed()
         .setTitle("Thanks for your Report!")
