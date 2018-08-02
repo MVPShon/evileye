@@ -32,7 +32,7 @@ evileye.on("message", async message => {
             .addField("Meme", "Pastes random Reddit memes.")
             .addField("OwO", "OwOifies your text.")
             .addField("Ping", "Shows the bot's current ping.")
-            .addField("Report", "If you happen to find something wrong with the bot and/or their commands you can use this command to let the bot owner know! Usage: `" + prefix + "report (report here)")
+            .addField("Report", "If you happen to find something wrong with the bot and/or their commands you can use this command to let the bot owner know! Usage: `" + prefix + "report (report here)`")
             .addField("Serverinfo","Shows info about the current server.")
             .addField("Weather", "Looks up weather for a specific place. `Usage: "+ prefix +"weather Hell`")
             .addField("Whois","Find out information about a specific user.")
