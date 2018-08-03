@@ -4,6 +4,7 @@ let prefix = ".";
 
 evileye.on("ready", async () => {
     console.log("Evileye is ready to go!")
+    evileye.users.get("168865955940794368").send(`${evileye.user.username} has just started up!`)
     evileye.user.setActivity(`\"${prefix}` + `help\" for help with ${evileye.user.username}`, {
         type: 'WATCHING'
     })
