@@ -374,6 +374,7 @@ evileye.on("message", async message => {
             })
     }
     if (message.content.startsWith(prefix + "4k")) {
+        if (!message.channel.nsfw) return message.reply("🔞 This command can only be used on an NSFW Channel! 🔞")
         var randomPuppy = require('random-puppy');
         var subreddits = [
             'NSFW_Wallpapers',
