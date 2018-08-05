@@ -30,6 +30,7 @@ evileye.on("message", async message => {
             .addField("MAL", "Looks up an anime off of MyAnimeList. `Usage: " + prefix + "mal Overlord`")
             .addField("Help", "Shows the bot's help command.")
             .addField("Meme", "Pastes random memes.")
+            .addField("Quote","Shows a random quote from an anime.")
             .addField("RedditMeme", "Even more memes for you.")
             .addField("OwO", "OwOifies your text.")
             .setFooter("If you're looking for admin commands then please type: " + prefix + "admin | If you're looking for music commands then please type " + prefix + "musichelp | If you're looking for NSFW commands then please type " + prefix + "nsfw")
