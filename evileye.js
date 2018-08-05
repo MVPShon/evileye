@@ -30,6 +30,7 @@ evileye.on("message", async message => {
             .addField("MAL", "Looks up an anime off of MyAnimeList. `Usage: " + prefix + "mal Overlord`")
             .addField("Help", "Shows the bot's help command.")
             .addField("Meme", "Pastes random memes.")
+            .addField("Overlord", "Provides a brief description and a link to a random site on the Overlord Wikia.")
             .addField("Quote","Shows a random quote from an anime.")
             .addField("RedditMeme", "Even more memes for you.")
             .addField("OwO", "OwOifies your text.")
@@ -551,6 +552,25 @@ evileye.on("message", async message => {
             });
         });
     }
+    if (message.content.startsWith(prefix + "overlord")){    
+const WikiaAPI = require('nodewikiaapi')
+const mywiki = new WikiaAPI('overlordmaruyama')
+const wikilink ='https://overlordmaruyama.wikia.com'
+mywiki.getArticlesListExpanded().then(data => {
+var datas = data.items[Math.floor(Math.random()*data.items.length)];
+let embed = new Discord.RichEmbed()
+.setTitle(datas.title)
+.setURL(wikilink + datas.url)
+.setDescription(datas.abstract + "\n\nRead more by clicking the link above.")
+.setThumbnail(datas.thumbnail)
+.setColor(0xff6464)
+.setFooter("SPOILER ALERT")
+.setTimestamp()
+  message.channel.send(embed)
+}).catch(error => {
+  console.log(error)
+})
+}
 })
 
 evileye.login(process.env.BOT_TOKEN);
