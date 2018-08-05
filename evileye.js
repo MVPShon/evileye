@@ -29,7 +29,8 @@ evileye.on("message", async message => {
             .addField("ASCII", "Turns your text into ascii.")
             .addField("MAL", "Looks up an anime off of MyAnimeList. `Usage: " + prefix + "mal Overlord`")
             .addField("Help", "Shows the bot's help command.")
-            .addField("Meme", "Pastes random Reddit memes.")
+            .addField("Meme", "Pastes random memes.")
+            .addField("RedditMeme", "Even more memes for you.")
             .addField("OwO", "OwOifies your text.")
             .setFooter("If you're looking for admin commands then please type: " + prefix + "admin | If you're looking for music commands then please type " + prefix + "musichelp | If you're looking for NSFW commands then please type " + prefix + "nsfw")
         message.channel.send(embed)
@@ -396,6 +397,17 @@ evileye.on("message", async message => {
                 });
             })
     }
+    if (message.content.startsWith(prefix + "RedditMeme") || (message.content.startsWith(prefix + "Redditmeme") || (message.content.startsWith(prefix + "redditmeme")))) {
+    var meme = require('memejs');
+    meme(function(data) {
+    var embed = new Discord.RichEmbed()
+    .setTitle(data.title[0])
+    .setColor(0xff6464)
+    .setImage(data.url[0])
+    .setFooter(data.author[0] + "'s post in " + data.subreddit[0])
+    message.channel.send({embed});
+    });
+  }
     if (message.content.startsWith(prefix + "meme")) {
         var randomPuppy = require('random-puppy');
         var subreddits = [
