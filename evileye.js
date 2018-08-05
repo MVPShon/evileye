@@ -31,7 +31,7 @@ evileye.on("message", async message => {
             .addField("Help", "Shows the bot's help command.")
             .addField("Meme", "Pastes random memes.")
             .addField("Overlord", "Provides a brief description and a link to a random site on the Overlord Wikia.")
-            .addField("Quote","Shows a random quote from an anime.")
+            .addField("Quote", "Shows a random quote from an anime.")
             .addField("RedditMeme", "Even more memes for you.")
             .addField("OwO", "OwOifies your text.")
             .setFooter("If you're looking for admin commands then please type: " + prefix + "admin | If you're looking for music commands then please type " + prefix + "musichelp | If you're looking for NSFW commands then please type " + prefix + "nsfw")
@@ -400,16 +400,18 @@ evileye.on("message", async message => {
             })
     }
     if (message.content.startsWith(prefix + "RedditMeme") || (message.content.startsWith(prefix + "Redditmeme") || (message.content.startsWith(prefix + "redditmeme")))) {
-    var meme = require('memejs');
-    meme(function(data) {
-    var embed = new Discord.RichEmbed()
-    .setTitle(data.title[0])
-    .setColor(0xff6464)
-    .setImage(data.url[0])
-    .setFooter(data.author[0] + "'s post in " + data.subreddit[0])
-    message.channel.send({embed});
-    });
-  }
+        var meme = require('memejs');
+        meme(function(data) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(data.title[0])
+                .setColor(0xff6464)
+                .setImage(data.url[0])
+                .setFooter(data.author[0] + "'s post in " + data.subreddit[0])
+            message.channel.send({
+                embed
+            });
+        });
+    }
     if (message.content.startsWith(prefix + "meme")) {
         var randomPuppy = require('random-puppy');
         var subreddits = [
@@ -523,17 +525,17 @@ evileye.on("message", async message => {
         message.channel.send("I have unmuted this user.");
         return;
     }
-        if (message.content.startsWith(prefix + "quote")) {
+    if (message.content.startsWith(prefix + "quote")) {
         let quotes = require("./quotes.json");
         let result = quotes[Math.floor((Math.random() * quotes.length))];
         let result = quotes.favquotes[Math.floor((Math.random() * quotes.favquotes.length))];
         let Embed = new Discord.RichEmbed()
-        .setColor(0xff6464)
-        .setDescription(`${result.quote}`)
-        .setFooter(`${result.name} from ${result.anime}`);
+            .setColor(0xff6464)
+            .setDescription(`${result.quote}`)
+            .setFooter(`${result.name} from ${result.anime}`);
         message.channel.send(Embed)
-        
-}
+
+    }
     if (message.content.startsWith(prefix + "ascii") || (message.content.startsWith(prefix + "asciify"))) {
         var figlet = require('figlet');
         var maxLen = 14 // You can modify the max characters here
@@ -550,25 +552,25 @@ evileye.on("message", async message => {
             });
         });
     }
-    if (message.content.startsWith(prefix + "overlord")){    
-const WikiaAPI = require('nodewikiaapi')
-const mywiki = new WikiaAPI('overlordmaruyama')
-const wikilink ='https://overlordmaruyama.wikia.com'
-mywiki.getArticlesListExpanded().then(data => {
-var datas = data.items[Math.floor(Math.random()*data.items.length)];
-let embed = new Discord.RichEmbed()
-.setTitle(datas.title)
-.setURL(wikilink + datas.url)
-.setDescription(datas.abstract + "\n\nRead more by clicking the link above.")
-.setThumbnail(datas.thumbnail)
-.setColor(0xff6464)
-.setFooter("SPOILER ALERT")
-.setTimestamp()
-  message.channel.send(embed)
-}).catch(error => {
-  console.log(error)
-})
-}
+    if (message.content.startsWith(prefix + "overlord")) {
+        const WikiaAPI = require('nodewikiaapi')
+        const mywiki = new WikiaAPI('overlordmaruyama')
+        const wikilink = 'https://overlordmaruyama.wikia.com'
+        mywiki.getArticlesListExpanded().then(data => {
+            var datas = data.items[Math.floor(Math.random() * data.items.length)];
+            let embed = new Discord.RichEmbed()
+                .setTitle(datas.title)
+                .setURL(wikilink + datas.url)
+                .setDescription(datas.abstract + "\n\nRead more by clicking the link above.")
+                .setThumbnail(datas.thumbnail)
+                .setColor(0xff6464)
+                .setFooter("SPOILER ALERT")
+                .setTimestamp()
+            message.channel.send(embed)
+        }).catch(error => {
+            console.log(error)
+        })
+    }
 })
 
 evileye.login(process.env.BOT_TOKEN);
