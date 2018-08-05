@@ -528,7 +528,6 @@ evileye.on("message", async message => {
     if (message.content.startsWith(prefix + "quote")) {
         let quotes = require("./quotes.json");
         let result = quotes[Math.floor((Math.random() * quotes.length))];
-        let result = quotes.favquotes[Math.floor((Math.random() * quotes.favquotes.length))];
         let Embed = new Discord.RichEmbed()
             .setColor(0xff6464)
             .setDescription(`${result.quote}`)
