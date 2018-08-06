@@ -117,8 +117,10 @@ evileye.on("message", async message => {
             .setColor(0xff6464)
             .addField("Info", "Sends statistics and a brief detail about the bot.")
             .addField("Ping", "Shows the bot's current ping.")
+            .addField("News", "Look up news on a specific topic.")
             .addField("Report", "If you happen to find something wrong with the bot and/or the bot commands you can use this command to let the bot owner know! Usage: `" + prefix + "report (report here)`")
             .addField("Serverinfo", "Shows info about the current server.")
+            .addField("Translate", "Translate text from English to target language.")
             .addField("Weather", "Looks up weather for a specific place. `Usage: " + prefix + "weather Hell`")
             .addField("Whois", "Find out information about a specific user.")
         message.channel.send(embed)
@@ -569,6 +571,129 @@ evileye.on("message", async message => {
         }).catch(error => {
             console.log(error)
         })
+    }
+        if (message.content.startsWith(prefix + "translate")) {
+        var translate = require('google-translate-api');
+        var Langs = ['afrikaans', 'albanian', 'amharic', 'arabic', 'armenian', 'azerbaijani', 'bangla', 'basque', 'belarusian', 'bengali', 'bosnian', 'bulgarian', 'burmese', 'catalan', 'cebuano', 'chichewa', 'chinese simplified', 'chinese traditional', 'corsican', 'croatian', 'czech', 'danish', 'dutch', 'english', 'esperanto', 'estonian', 'filipino', 'finnish', 'french', 'frisian', 'galician', 'georgian', 'german', 'greek', 'gujarati', 'haitian creole', 'hausa', 'hawaiian', 'hebrew', 'hindi', 'hmong', 'hungarian', 'icelandic', 'igbo', 'indonesian', 'irish', 'italian', 'japanese', 'javanese', 'kannada', 'kazakh', 'khmer', 'korean', 'kurdish (kurmanji)', 'kyrgyz', 'lao', 'latin', 'latvian', 'lithuanian', 'luxembourgish', 'macedonian', 'malagasy', 'malay', 'malayalam', 'maltese', 'maori', 'marathi', 'mongolian', 'myanmar (burmese)', 'nepali', 'norwegian', 'nyanja', 'pashto', 'persian', 'polish', 'portugese', 'punjabi', 'romanian', 'russian', 'samoan', 'scottish gaelic', 'serbian', 'sesotho', 'shona', 'sindhi', 'sinhala', 'slovak', 'slovenian', 'somali', 'spanish', 'sundanese', 'swahili', 'swedish', 'tajik', 'tamil', 'telugu', 'thai', 'turkish', 'ukrainian', 'urdu', 'uzbek', 'vietnamese', 'welsh', 'xhosa', 'yiddish', 'yoruba', 'zulu'];
+
+        if (message.author.bot) return;
+        if (args[0] === undefined) {
+
+            var embed = new Discord.RichEmbed()
+                .setColor(0xff6464)
+                .setDescription("Please provide more for the bot to translate.\nUsage: `" + prefix + "translate <language> <text>`");
+            return message.channel.send(embed);
+
+        } else {
+
+            if (args[1] === undefined) {
+                var embed = new Discord.RichEmbed()
+                    .setColor(0xff6464)
+                    .setDescription("Please specify something to translate.\n `" + prefix + "translate <language> <text>`");
+                return message.channel.send(embed);
+
+            } else {
+
+                let transArg = args[0].toLowerCase();
+
+                args = args.join(' ').slice(prefix.length);
+                let translation;
+
+                if (!Langs.includes(transArg)) return message.channel.send(`That language was not found.`);
+                args = args.slice(transArg.length);
+
+                translate(args, {
+                    to: transArg
+                }).then(res => {
+
+                    var embed = new Discord.RichEmbed()
+                        .setTitle(`Translating to ${transArg}`)
+                        .addField(`\"${args}\"`, `\"${res.text}\"`)
+                        .setColor(0xff6464)
+                    return message.channel.send(embed);
+
+                });
+
+            }
+
+        }
+
+    }
+    if (message.content.startsWith(prefix + "news ")) {
+        var NewsAPI = require('newsapi');
+        var newsapi = new NewsAPI('e58c37a5847148ccb5c8f61e8c2d477b');
+        var rand = Math.floor(Math.random() * 11) + 1;
+
+        newsapi.v2.everything({
+
+            q: `${args.join(" ")}`,
+            domains: 'cnn.com,news.google.com,foxnews.com,npr.org,abcnews.go.com,yahoo.com/news/,bbc.co.uk,techcrunch.com',
+            from: '2018-8-1',
+            to: '2018-12-31',
+            language: 'en',
+            sortBy: 'relevancy',
+            page: rand
+
+        }).then(response => {
+            console.log(response)
+            if (response.totalResults == 0) return message.reply("Nothing found for your search.. Weird.")
+            if (!response.articles[0].title) {
+                let embed = new Discord.RichEmbed()
+                    .setTitle(`Result For ${args.join("")}`)
+                    .setDescription(response.articles[0].description)
+                    .setImage(response.articles[0].urlToImage)
+                    .setColor(0xff6464)
+                    .setURL(response.articles[0].url)
+                    .setFooter("Published On " + response.articles[0].publishedAt + " by: " + response.articles[0].author)
+                message.channel.send(embed)
+            }
+            let embed = new Discord.RichEmbed()
+                .setTitle(response.articles[0].title)
+                .setDescription(response.articles[0].description)
+                .setImage(response.articles[0].urlToImage)
+                .setColor(0xff6464)
+                .setURL(response.articles[0].url)
+                .setFooter("Published On " + response.articles[0].publishedAt + " by: " + response.articles[0].author)
+            message.channel.send(embed)
+        }).catch(err => {
+            if(err) message.reply("An error has occured with your search. Please try again.");
+            })
+    }
+    if (message.content.startsWith(prefix + "eval")) {
+        let botmessage = args.join(" ");
+        if (message.author.id !== "168865955940794368") return;
+        try {
+            var code = args.join(" ");
+            var evaled = eval(code);
+
+            if (typeof evaled !== "string")
+                evaled = require("util").inspect(evaled)
+            var embed = new Discord.RichEmbed()
+            message.channel.send({
+                embed: {
+                    color: 0xff6464,
+                    author: {
+                        name: evileye.user.username,
+                        icon_url: evileye.user.avatarURL
+                    },
+                    description: botmessage,
+                    fields: [{
+                        name: "Result",
+                        value: ("x1", clean(evaled))
+                    }],
+                    timestamp: new Date(),
+                }
+            });
+        } catch (err) {
+            message.channel.send(`\`ERROR\` \`\`\`x1\n${clean(err)}\n\`\`\``);
+        }
+
+        function clean(text) {
+            if (typeof(text) === "string")
+                return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+            else
+                return text;
+        }
     }
 })
 
