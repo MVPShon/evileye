@@ -272,7 +272,6 @@ evileye.on("message", async message => {
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
 
     }
-
     if (message.content.startsWith(prefix + "mal ")) {
         var malScraper = require('mal-scraper')
 
@@ -280,12 +279,15 @@ evileye.on("message", async message => {
 
         malScraper.getInfoFromName(name)
             .then((data) => {
+                console.log(data)
                 let Embed = new Discord.RichEmbed()
                     .setColor(0xff6464)
                     .setTitle(data.title)
                     .addField("Genres", data.genres)
-                    .addField("Status", data.status + " with " + data.episodes + " episode(s).", true)
+                    .addField("Aired/Airing", data.aired, true)
+                    .addField("Status", data.status + " with " + data.episodes + " episodes", true)
                     .addField("Rated", data.rating, true)
+                    .addField("MAL Score", "`" + data.score + "8`/10 " + data.scoreStats, true)
                     .addField("Summary", data.synopsis.slice(0, 1021) + "...")
                     .setThumbnail(data.picture)
                     .setFooter("Ranked " + data.ranked + " on MAL.")
@@ -293,7 +295,6 @@ evileye.on("message", async message => {
                 message.channel.send(Embed)
             }).catch((err) => console.log(err))
     }
-
     if (message.content.startsWith(prefix + "owo ") || (message.content.startsWith(prefix + "owoify ") || (message.content.startsWith(prefix + "OwOify ") || (message.content.startsWith(prefix + "OwO "))))) {
         let text = `${args.join(" ")}`.replace(/r|l/g, "w").replace(/R|L/g, "W");
         let embed = new Discord.RichEmbed()
