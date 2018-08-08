@@ -29,7 +29,7 @@ evileye.on("guildMemberAdd", member => {
     
     if(member.guild.id !== "466436909607157770") return;
     evileye.channels.get("474651288517345280").send(`${welcmsgs[randwelc]}`)
-    let pleb = member.guild.roles.find(r => r.name == "Plebs");
+    let pleb = member.guild.roles.find(r => r.name == "Mortals");
     member.addRole(pleb);
     });
 
