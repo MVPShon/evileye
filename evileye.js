@@ -13,6 +13,7 @@ evileye.on("ready", async () => {
     console.log("Evileye is ready to go!")
     evileye.users.get("168865955940794368").send(`${evileye.user.username} has just restarted!`)
     setInterval(function() {
+    console.log(`Set ${evileye.user.username}'s status to ${statuses[status]}`)
     evileye.user.setActivity(statuses[status], {
         type: 'WATCHING'
     })
