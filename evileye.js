@@ -30,8 +30,10 @@ evileye.on("guildMemberAdd", member => {
         `We usually do not allow your kind into this domain, ${member}.`,
         `Consider yourself lucky, ${member}, that Lord Ainz has permitted you to be here.`,
         `${member} has been admitted into Nazarick!`,
-        `${member}, mere mortals like you cannot fathom how lucky you are to be here`,
+        `${member}, mere mortals like you cannot fathom how lucky you are to be here.`,
         `Lord Ainz expects great things from you, ${member}.`,
+        `Nazarick welcomes you to its inner halls, ${member}.`,
+        `${member} if only a mortal like you could understand Lord Ainz.`,
         `${member} should make fine food for the demons.`
     ]
         let randwelc = Math.floor((Math.random() * welcmsgs.length));
