@@ -12,7 +12,7 @@ evileye.on("ready", async () => {
     ]
 
     console.log("Evileye is ready to go!")
-    evileye.users.get("168865955940794368").send(`${evileye.user.username} has just restarted! \n${evileye.user.username} has been up for ${evileye.uptime} seconds!`)
+    evileye.users.get("168865955940794368").send(`${evileye.user.username} has just restarted! \n${evileye.user.username} has been up for ${evileye.uptime} milliseconds!`)
     setInterval(function() {
     let status = Math.floor((Math.random() * statuses.length));
     evileye.user.setActivity(statuses[status], {
