@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 let evileye = new Discord.Client();
 let prefix = ".";
 
-eevileye.on("ready", async () => {
+evileye.on("ready", async () => {
     let statuses = [
         `${evileye.guilds.size} servers!`,
         `over ${evileye.users.size} people!`,
