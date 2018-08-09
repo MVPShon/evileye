@@ -2,23 +2,25 @@ const Discord = require("discord.js");
 let evileye = new Discord.Client();
 let prefix = ".";
 
-evileye.on("ready", async () => {
+eevileye.on("ready", async () => {
     let statuses = [
         `${evileye.guilds.size} servers!`,
+        `over ${evileye.users.size} people!`,
         `\"${prefix}` + `help\" for help with ${evileye.user.username}`,
+        `${evileye.channels.size} rooms!`,
         `newest episode of Overlord III`
     ]
 
-    let status = Math.floor((Math.random() * statuses.length));
     console.log("Evileye is ready to go!")
-    evileye.users.get("168865955940794368").send(`${evileye.user.username} has just restarted!`)
+    evileye.users.get("168865955940794368").send(`${evileye.user.username} has just restarted! \n${evileye.user.username} has been up for ${evileye.uptime} seconds!`)
     setInterval(function() {
-    console.log(`Set ${evileye.user.username}'s status to ${statuses[status]}`)
+    let status = Math.floor((Math.random() * statuses.length));
     evileye.user.setActivity(statuses[status], {
         type: 'WATCHING'
     })
-    }, 30000)
+    }, 15000)
 });
+
 evileye.on("guildCreate", guild => {
     evileye.users.get("168865955940794368").send("`" + guild.owner.user.username + "` has just added me to their server: `" + guild.name + "`");
 });
