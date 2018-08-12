@@ -64,7 +64,6 @@ evileye.on("message", async message => {
             .addField("Meme", "Pastes random memes.")
             .addField("Overlord", "Provides a brief description and a link to a random site on the Overlord Wikia.")
             .addField("Quote", "Shows a random quote from an anime.")
-            .addField("RedditMeme", "Even more memes for you.")
             .addField("OwO", "OwOifies your text.")
             .setFooter("If you're looking for admin commands then please type: " + prefix + "admin | If you're looking for music commands then please type " + prefix + "musichelp | If you're looking for NSFW commands then please type " + prefix + "nsfw")
         message.channel.send(embed)
@@ -434,14 +433,14 @@ evileye.on("message", async message => {
                 });
             })
     }
-    if (message.content.startsWith(prefix + "RedditMeme") || (message.content.startsWith(prefix + "Redditmeme") || (message.content.startsWith(prefix + "redditmeme")))) {
-        var meme = require('memejs');
-        meme(function(data) {
+    if (message.content.startsWith(prefix + "meme")){
+        var redditmeme = require('reddit-memes');
+        redditmeme(function(data, err) {
             var embed = new Discord.RichEmbed()
                 .setTitle(data.title[0])
                 .setColor(0xff6464)
                 .setImage(data.url[0])
-                .setFooter(data.author[0] + "'s post in " + data.subreddit[0])
+                .setFooter("r/"+data.subreddit[0])
             message.channel.send({
                 embed
             });
@@ -463,27 +462,6 @@ evileye.on("message", async message => {
         .setDescription(kills[killmethod].replace(/userkiller/g, message.author.username).replace(/userkilled/g, targetUser.user.username))
         message.channel.send(embed)
         }
-    if (message.content.startsWith(prefix + "meme")) {
-        var randomPuppy = require('random-puppy');
-        var subreddits = [
-            'MemeEconomy',
-            'Memes',
-            'Dankmemes',
-            'Animemes'
-        ]
-        var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
-        randomPuppy(sub)
-            .then(url => {
-                let embed = new Discord.RichEmbed()
-                    .setTitle("Memes make the world go 'round")
-                    .setColor(0xff6464)
-                    .setFooter("Image doesn't load? Probably a video or a deleted image.")
-                    .setImage(url);
-                message.channel.send({
-                    embed
-                });
-            })
-    }
     if (message.content.startsWith(prefix + "hentai")) {
         if (!message.channel.nsfw) return message.reply("🔞 This command can only be used on an NSFW Channel! 🔞")
         var randomPuppy = require('random-puppy');
