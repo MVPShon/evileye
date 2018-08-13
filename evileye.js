@@ -40,7 +40,7 @@ evileye.on("guildMemberRemove", member => {
     let serverid = auditlogs[member.guild.id];
     let alogchan = auditlogs[member.guild.id].auditchannelid;
     if (!serverid) return message.reply(`Please set a channel using ${prefix}settings auditlogchannel <Channel ID>`);
-    var kickmessage = `${member.user.username} has been kicked from ${member.guild.name}.\nReason: ${reason}`
+    var kickmessage = `${member.user.username} has been kicked from ${member.guild.name}.`
     let randkick = Math.floor((Math.random() * kickgifs.length));
     let embed = new Discord.RichEmbed()
         .setColor(0xff6464)
