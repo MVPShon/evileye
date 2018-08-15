@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 let evileye = new Discord.Client();
-let prefix = "--";
+let prefix = ".";
 evileye.on("ready", async () => {
     let statuses = [
         `${evileye.guilds.size} servers!`,
