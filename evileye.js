@@ -29,7 +29,7 @@ evileye.on("message", message => {
 
     try {
 
-        let commandFile = require(`./Commands/${cmd}.js`);
+        let commandFile = require(`./commands/${cmd}.js`);
         commandFile.run(evileye, message, args, prefix);
 
     } catch (e) {
