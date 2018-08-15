@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-let prefix = "--";
+let prefix = ".";
 exports.run = async (evileye, message, args) => {
         let embed = new Discord.RichEmbed()
             .setAuthor(`ALL Commands for Evileye`)
