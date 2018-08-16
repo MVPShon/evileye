@@ -1,6 +1,30 @@
 const Discord = require("discord.js");
 let evileye = new Discord.Client();
 let prefix = ".";
+
+evileye.on("guildMemberAdd", member => {
+    let welcmsgs = [
+        `${member}, be ready to praise Lord Ainz, foolish human.`,
+        `We usually do not allow your kind into this domain, ${member}.`,
+        `Consider yourself lucky, ${member}, that Lord Ainz has permitted you to be here.`,
+        `${member} has been admitted into Nazarick!`,
+        `${member}, mere mortals like you cannot fathom how lucky you are to be here.`,
+        `Lord Ainz expects great things from you, ${member}.`,
+        `${member} should make fine food for the demons.`
+    ]
+        let randwelc = Math.floor((Math.random() * welcmsgs.length));
+    
+    if(member.guild.id !== "466436909607157770") return;
+    evileye.channels.get("474651288517345280").send(`${welcmsgs[randwelc]}`)
+    let pleb = evileye.guild.roles.find(r => r.name == "Mortals");
+    member.addRole(pleb);
+    });
+evileye.on("guildCreate", guild => {
+    evileye.users.get("168865955940794368").send("`" + guild.owner.user.username + "` has just added me to their server: `" + guild.name + "`");
+});
+evileye.on("guildDelete", guild => {
+    evileye.users.get("168865955940794368").send("`" + guild.owner.user.username + "` has just removed me from their server: `" + guild.name + "`");
+});
 evileye.on("ready", async () => {
     let statuses = [
         `${evileye.guilds.size} servers!`,
