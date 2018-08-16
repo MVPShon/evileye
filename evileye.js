@@ -10,15 +10,18 @@ evileye.on("guildMemberAdd", member => {
         `${member} has been admitted into Nazarick!`,
         `${member}, mere mortals like you cannot fathom how lucky you are to be here.`,
         `Lord Ainz expects great things from you, ${member}.`,
+        `Nazarick welcomes you to its inner halls, ${member}.`,
+        `${member} if only a mortal like you could understand Lord Ainz.`,
         `${member} should make fine food for the demons.`
     ]
         let randwelc = Math.floor((Math.random() * welcmsgs.length));
     
     if(member.guild.id !== "466436909607157770") return;
     evileye.channels.get("474651288517345280").send(`${welcmsgs[randwelc]}`)
-    let pleb = evileye.guild.roles.find(r => r.name == "Mortals");
+    let pleb = member.guild.roles.find(r => r.name == "Mortals");
     member.addRole(pleb);
     });
+
 evileye.on("guildCreate", guild => {
     evileye.users.get("168865955940794368").send("`" + guild.owner.user.username + "` has just added me to their server: `" + guild.name + "`");
 });
@@ -31,7 +34,7 @@ evileye.on("ready", async () => {
         `over ${evileye.users.size} people!`,
         `\"${prefix}` + `help\" for help with ${evileye.user.username}`,
         `${evileye.channels.size} rooms!`,
-        `newest anime episodes!`
+        `newest episode of Overlord III!`
     ]
 
     console.log("Evileye is ready to go!")
