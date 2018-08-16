@@ -8,7 +8,7 @@ newsapi.v2.everything({
 
     q: `${args.join(" ")}`,
     domains: 'cnn.com,news.google.com,foxnews.com,npr.org,abcnews.go.com,yahoo.com/news/,bbc.co.uk,techcrunch.com,nytimes.com,huffingtonpost.com,nbcnews.com,dailymail.co.uk,washingtonpost.com,theguardian.com,usatoday.com,latimes.com',
-    from: '2018-8-1',
+    from: '2018-8-10',
     to: '2018-12-31',
     language: 'en',
     sortBy: 'relevancy',
