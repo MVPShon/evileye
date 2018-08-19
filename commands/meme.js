@@ -6,7 +6,6 @@ redditmeme(function(data, err) {
         .setTitle(data.title[0])
         .setColor(0xff6464)
         .setImage(data.url[0])
-        .setFooter("r/"+data.subreddit[0])
     message.channel.send({
         embed
     });
