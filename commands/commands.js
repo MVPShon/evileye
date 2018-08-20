@@ -9,6 +9,7 @@ exports.run = async (evileye, message, args) => {
             .addField("Info", "Sends statistics and a brief detail about the bot.")
             .addField("MAL", "Looks up an anime off of MyAnimeList. `Usage: " + prefix + "mal Overlord`")
             .addField("Help", "Shows the bot's help command.")
+            .addField("Kill", "Kill your friends in creative ways!")
             .addField("Meme", "Pastes random Reddit memes.")
             .addField("OwO", "OwOifies your text.")
             .addField("Ping", "Shows the bot's current ping.")
