@@ -7,7 +7,7 @@ let embed = new Discord.RichEmbed()
     .setAuthor("| Kill", message.author.displayAvatarURL)
     .setColor(0xff6464)
     .setDescription(kills[killmethod].replace(/userkiller/g, message.author.username))
-message.channel.send(embed)
+ return message.channel.send(embed)
 }
     if (args[0]) {
     if (message.mentions) {
