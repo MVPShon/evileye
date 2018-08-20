@@ -41,6 +41,7 @@
     "nodewikiaapi": "^2.0.2",
     "random-puppy": "^1.1.0",
     "reddit-memes": "^1.0.7",
+    "twitch.tv-api": "^1.2.4",
     "weather-js": "^2.0.0",
     "webdict": "^0.3.0"
   }
