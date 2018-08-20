@@ -3,7 +3,7 @@ exports.run = async (evileye, message, args) => {
     const Twitch = require("twitch.tv-api");
 const twitch = new Twitch({
     id: "zepa42nmpvkny7kzh6fe2b3oht17no",
-    secret: "6ho25l3q98a5nnqqsd1tcy7q8upt7v"
+    secret: process.env.TWITCH_SECRET
 });
 twitch.getFeaturedStreams({limit: 3})
     .then(data => {
