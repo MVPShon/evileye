@@ -13,8 +13,9 @@ exports.run = async (evileye, message, args) => {
             .addField("Meme", "Pastes random Reddit memes.")
             .addField("OwO", "OwOifies your text.")
             .addField("Ping", "Shows the bot's current ping. ")
+            .addField("TTVFeatured", "Shows the top 3 featured Twitch Channels. ")
             .addField("Twitch", "Search for a live Twitch user! `Usage: " + prefix + "twitch MVPShon`")
             .addField("Weather", "Looks up weather for a specific place. `Usage: " + prefix + "weather Hell`")
-            .setFooter("If you're looking for admin commands then please type: " + prefix + "admin | If you're looking for NSFW commands then please type " + prefix + "nsfw")
+            .setFooter("ALL COMMANDS ARE IN LOWERCASE -- If you're looking for admin commands then please type: " + prefix + "admin | If you're looking for NSFW commands then please type " + prefix + "nsfw")
         message.channel.send(embed)
     }
