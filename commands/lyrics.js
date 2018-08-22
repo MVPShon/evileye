@@ -10,6 +10,7 @@ exports.run = async (evileye, message, args) => {
  
     lyrics.getLyrics(str)
       .then(x => {
+        console.log(x)
           if (x.length > 2048) {
             let embed = new Discord.RichEmbed()
             .setAuthor(`Lyrics for \"${capitalize_Words(str)}\"`)
@@ -49,10 +50,12 @@ exports.run = async (evileye, message, args) => {
             return message.channel.send(embed)
     }
         }).catch(err => {
+        console.log(err)
             let embed = new Discord.RichEmbed()
             .setTitle(message.author.username + ` - Error when searching for \"${capitalize_Words(str)}\"`)
             .setColor(0xff6464)
             .setDescription(err)
             .setThumbnail("https://www.freeiconspng.com/uploads/sign-red-error-icon-1.png")
             return message.channel.send(embed)
+        
         })}
