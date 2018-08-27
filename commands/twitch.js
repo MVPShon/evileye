@@ -13,7 +13,7 @@ const twitch = new Twitch({
         .setTitle(data.stream.channel.status)
         .setAuthor(data.stream.channel.display_name + " is live!")
         .addField("Game", data.stream.game, true)
-        .addField("Followers", data.stream.channel.followers, true)
+        .addField("Viewers", data.stream.channel.viewers, true)
         .setImage(data.stream.preview.large)
         .setURL(data.stream.channel.url)
         .setThumbnail(data.stream.channel.logo)
