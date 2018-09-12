@@ -34,7 +34,7 @@ evileye.on("ready", async () => {
         `over ${evileye.users.size} people!`,
         `\"${prefix}` + `help\" for help with ${evileye.user.username}`,
         `${evileye.channels.size} rooms!`,
-        `Currently working on a new, improved music system. Music commands will be down until further notice!`,
+        `Music commands are up again, but still in testing! Use ".report" if you find anything wrong with the commands!`,
         `newest episode of Overlord III!`
     ]
 
