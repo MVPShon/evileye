@@ -35,7 +35,7 @@ evileye.on("ready", async () => {
         `\"${prefix}` + `help\" for help with ${evileye.user.username}`,
         `${evileye.channels.size} rooms!`,
         `Music commands are up again, but still in testing! Use ".report" if you find anything wrong with the commands!`,
-        `newest episode of Overlord III!`
+        `rewatching Overlord III!`
     ]
 
     console.log("Evileye is ready to go!")
