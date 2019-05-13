@@ -65,4 +65,4 @@ evileye.on("message", message => {
     }
 
 });
-evileye.login("NDYzMzY1NjA4ODY4ODA2NjY2.XNixjA.BhhrbMUA6U12hhy6Cl20XHzhKcM");
+evileye.login(process.env.BOT_TOKEN);
