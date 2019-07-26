@@ -21,7 +21,11 @@ evileye.on("guildMemberAdd", member => {
     let pleb = member.guild.roles.find(r => r.name == "Mortals");
     member.addRole(pleb);
     });
-
+evileye.on("guildMemberAdd", member => {
+     if(member.guild.id !== "249804584850161665") return;
+     let tfollow = member.guild.roles.find(r => r.name == "Twitch Follower");
+    member.addRole(tfollow);
+    });
 evileye.on("guildCreate", guild => {
     evileye.users.get("168865955940794368").send("`" + guild.owner.user.username + "` has just added me to their server: `" + guild.name + "`");
 });
