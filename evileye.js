@@ -20,11 +20,9 @@ evileye.on("guildMemberAdd", member => {
     evileye.channels.get("474651288517345280").send(`${welcmsgs[randwelc]}`)
     let pleb = member.guild.roles.find(r => r.name == "Mortals");
     member.addRole(pleb);
-    });
-evileye.on("guildMemberAdd", member => {
-     if(member.guild.id !== "249804584850161665") return;
+     if(member.guild.id == "249804584850161665") {
      let tfollow = member.guild.roles.find(r => r.name == "Twitch Follower");
-    member.addRole(tfollow);
+    member.addRole(tfollow); }
     });
 evileye.on("guildCreate", guild => {
     evileye.users.get("168865955940794368").send("`" + guild.owner.user.username + "` has just added me to their server: `" + guild.name + "`");
