@@ -20,7 +20,7 @@ evileye.on("guildMemberAdd", member => {
     evileye.channels.get("474651288517345280").send(`${welcmsgs[randwelc]}`)
     let pleb = member.guild.roles.find(r => r.name == "Mortals");
     member.addRole(pleb);
-     if(member.guild.id == "249804584850161665") {
+     if(member.guild.id !== "249804584850161665") {
      let tfollow = member.guild.roles.find(r => r.name == "Twitch Follower");
     member.addRole(tfollow); }
     });
