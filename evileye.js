@@ -16,7 +16,7 @@ evileye.on("guildMemberAdd", member => {
     ]
         let randwelc = Math.floor((Math.random() * welcmsgs.length));
     if(member.guild.id == "249804584850161665") {
-     let tfollow = member.guild.roles.find(r => r.name == "Twitch Follower");
+     let tfollow = member.guild.roles.find(r => r.name == "Followers");
     member.addRole(tfollow); }
     if(member.guild.id !== "466436909607157770") return;
     evileye.channels.get("474651288517345280").send(`${welcmsgs[randwelc]}`)
